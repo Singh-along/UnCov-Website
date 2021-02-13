@@ -1,10 +1,10 @@
 $.ajax({
-    url: 'https://api.rootnet.in/covid19-in/contacts',
+    url: 'https://api.rootnet.in/covid19-in/notifications',
     type: "get",
     dataType: "json",
 
     success: function(data) {
-        drawTable(data.data.contacts.regional);
+        drawTable(data.data.notifications);
     }
 });
 
@@ -16,7 +16,7 @@ function drawTable(data) {
 
 function drawRow(rowData) {
     var row = $("<tr />")
-    $("#personDataTable").append(row);
-    row.append($("<td>" + rowData.loc + "</td>"));
-    row.append($("<td>" + rowData.number + "</td>"));
+    $("#notifyDataTable").append(row);
+    row.append($("<td>" + rowData.title + "</td>"));
+    row.append($("<td><a>" + rowData.link + "</a></td>"));
 }
